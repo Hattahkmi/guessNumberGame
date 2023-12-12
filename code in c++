@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main()
+{
+    int guessNumb;
+    int counter = 0;
+
+    //generate random number
+    srand(time(NULL));
+    int max = 100;
+    int min = 0;
+    int randomNumber = rand() % (max - min +1) + min;
+    //cout << randomNumber << endl;
+
+    //ask user to input the number
+    cout << "********** WELCOME TO NUMBER GUESSING GAME **********" << endl;
+    cout << " " << endl;
+    cout << "game started......" << endl;
+    cout << "Please input your guessing number....." << endl;
+    cout << "Range from 0 - 100" << endl;
+
+    do{
+    cin >> guessNumb ;
+
+    //see if input guessnumb == randomnumber
+    // we use if else statement
+        if (guessNumb < randomNumber){
+        cout << "Your number is too low...." << endl;
+        cout << "Please enter another number...." << endl;
+        counter++;
+        }   else if (guessNumb > randomNumber){
+        cout << "Your number is too high" << endl;
+        cout << "Please enter another number...." << endl;
+        counter++;
+        }   else {
+        cout << "Your number is correct" << endl;
+        }
+    } while (guessNumb != randomNumber);
+
+    cout << "you did it after " << counter + 1 << " times" << endl;
+
+
+    cout << " " << endl;
+    cout << "********* THANK YOU FOR YOUR PARTICIPATION **********" << endl;
+
+
+    return 0;
+}
